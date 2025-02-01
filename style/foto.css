@@ -1,0 +1,131 @@
+.foto {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 20px;
+  }
+  @media (max-width: 768px) {
+    .foto {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+  
+    /* Ensure the download button is completely hidden on mobile */
+    .image-container .download-btn {
+      display: none !important;
+    }
+  }
+  .image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Maintain square aspect ratio */
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fits in square */
+    transition: transform 0.3s ease;
+  }
+
+  .image-container:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+
+  .download-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex; /* Make button a flex container */
+    justify-content: center; /* Center contents horizontally */
+    align-items: center; /* Center contents vertically */
+  }
+
+  .image-container:hover .download-btn {
+    opacity: 1; /* Show download button on hover */
+  }
+
+  /* Centered expanded image overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
+  /* Close button for overlay */
+  .overlay .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .overlay:empty {
+    display: none;
+  }
+
+  /* Image grid centering for square images */
+  .image-container img {
+    object-position: center; /* Ensures the image is taken from the center */
+  }
+/* Style for headings to ensure they are block elements with spacing */
+h2 {
+  display: block;
+  margin-bottom: 20px; /* Adds space below each heading */
+  clear: both; /* Ensures no floating elements interfere with the heading */
+}
+
+/* Style for image sections */
+#image-section-1, #image-section-2 {
+  display: block;
+  margin-bottom: 30px; /* Adds spacing below image section */
+}
+
+/* Ensure images are on their own line and maintain spacing */
+#image-section-1 img, #image-section-2 img {
+  display: block;
+  width: 100%; /* Makes images responsive and fill their container */
+  margin-bottom: 15px; /* Adds space between each image */
+  max-width: 100%; /* Ensures images don't stretch beyond their container */
+}
+
+/* Optional: Add a rule for buttons, ensuring they have spacing and are not inline with images */
+button {
+  display: block;
+  margin-bottom: 20px; /* Adds space below buttons */
+}
