@@ -38,22 +38,6 @@
     </div>
     <div id="content_header"></div>
     <div id="site_content">
-      <!-- This is a comment 
-      <div id="banner">
-        <center>
-          <div class="center-box">
-            <canvas id="canvas" width="400" height="400"></canvas>
-          </div>
-        </center>
-      </div>-->
-
-    <!--<div id="sidebar_container">
-      <div class="sidebar">
-        <div class="sidebar_item">
-          <h2>Piesakies līdz 30. novembrim!</h2>
-          <p>Pieteikuma anketu meklē šeit: <a href="#"></a>.</p>
-        </div>
-      </div>-->
 
       <h2>BKO 2024</h2>
       <table>
@@ -76,6 +60,7 @@
       </table>
     
       <h2>BKO 2023</h2>
+
       <table>
         <tr>
           <td>9.-10. klases</td>
@@ -87,18 +72,6 @@
         </tr>
       </table>
       
-      
-
-
-
-      <!--
-      <p>Šādi var ievietot <a href="http://creativecommons.org/licenses/by/3.0">linku</a>.</p>
-      <p>Šādi var <strong>boldot</strong> un <em>italicisot</em>. Šādi var veidot listu:</p>
-      <ul>
-        <li>Internet Explorer 9</li>
-        <li>FireFox 25</li>
-        <li>Google Chrome 31</li>
-      </ul>-->
   </div>
   
     <div id="content_footer"></div>
@@ -112,80 +85,5 @@
     </div>
   </div>
   </div>
-
-  <!-- did not manage to add the BKO logo inside the animation -->
-
-
-  <script>
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    var amplitude = 20; // Amplitude of the cosine wave
-    var circleRadius = 150; // Radius of the circular axis
-    var n = 8; // Integer defining the number of cosine wave cycles
-    var phaseOffset = Math.PI / 2; // Phase offset for the second circular cosine wave
-    var ballRadius = 5; // Radius of the balls
-    var ballSpeed = 0.01; // Speed of the balls
-
-    // Initial positions of the balls
-    var ball1Angle = 0;
-    var ball2Angle = 0;
-
-    function render() {
-        // Clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the circular axis
-        // ctx.beginPath();
-        // ctx.arc(canvas.width / 2, canvas.height / 2, circleRadius, 0, Math.PI * 2);
-        // ctx.stroke();
-
-        // Draw the first circular cosine wave
-        drawCircularCosineWave("#90e0f0", 0);
-
-        // Draw the second circular cosine wave with a phase offset
-        drawCircularCosineWave("#5080a0", phaseOffset);
-
-        // Move and draw the balls
-        moveAndDrawBall("#00008b", ball1Angle, 0);
-        moveAndDrawBall("#000033", ball2Angle, phaseOffset);
-
-        // Update ball angles for next frame
-        ball1Angle += ballSpeed;
-        ball2Angle += ballSpeed;
-
-        // Request next frame
-        requestAnimationFrame(render);
-    }
-
-    function drawCircularCosineWave(color, offset) {
-        ctx.fillStyle = color; // Color for the circles
-        ctx.strokeStyle = color; // Color for the lines
-        ctx.beginPath();
-        for (var angle = 0; angle <= Math.PI * 2; angle += 0.01) {
-            var r = circleRadius + amplitude * Math.cos(angle * n + offset);
-            var x = canvas.width / 2 + r * Math.cos(angle);
-            var y = canvas.height / 2 + r * Math.sin(angle);
-
-            // Draw a circle at each point along the circular cosine wave
-            ctx.beginPath();
-            ctx.arc(x, y, ballRadius, 0, Math.PI * 2); // Draw circles with 3 times the radius for thicker appearance
-            ctx.fill();
-        }
-    }
-
-    function moveAndDrawBall(color, angle, offset) {
-        var r = circleRadius + amplitude * Math.cos(angle * n + offset);
-        var x = canvas.width / 2 + r * Math.cos(angle);
-        var y = canvas.height / 2 + r * Math.sin(angle);
-
-        // Draw the ball
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-        ctx.fill();
-    }
-
-    render();
-  </script>
 </body>
 </html>

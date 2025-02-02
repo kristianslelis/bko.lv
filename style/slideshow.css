@@ -1,0 +1,75 @@
+.slideshow-container {
+    position: absolute; /* Position it relative to #header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind other elements */
+    overflow: hidden; /* Hide overflowed content */
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0; /* All images start hidden */
+    transition: opacity 0.3s ease-in-out, transform 1s ease-in-out; 
+}
+
+/* Make sure the first image is always visible initially */
+.slides:first-child {
+    opacity: 1;
+}
+
+#logo {
+position: relative;
+z-index: 1; /* Ensure it stays above the slideshow */
+width: 100%;
+height:570px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background: linear-gradient(to top, rgba(46, 80, 69, 1) 0%, rgba(46, 80, 69, 0) 50%);
+
+}
+  
+.slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+.slides.active {
+    opacity: 1;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.4; transform: scale(0.95);} /* Start smaller */
+    to {opacity: 1; transform: scale(1);} /* End at normal size */
+}
+
+.fade {
+    animation: fadeEffect 0s;
+}
+#ikona{
+    display:none;
+    }
+
+@media only screen and (max-width: 600px) {
+#logo {
+    height:auto
+}
+#ikona{
+    display:contents;
+}
+.slides{
+    display:none;
+}
+}

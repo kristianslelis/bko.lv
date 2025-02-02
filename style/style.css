@@ -521,14 +521,26 @@ ul#menu li.selected a, ul#menu li a:hover {
     background-color: salmon; /* Light red background for incorrect */
 }
 
+
 table {
   width: 100%;
-  border-collapse: collapse; /* Combines borders into a single border */
+  border-collapse: collapse;
+  table-layout: auto; /* Allow table to resize based on content */
+  
 }
+
 th, td {
   border: 1px solid #000; /* Adds border to each cell */
   padding: 10px;
   text-align: left; /* Centers the content inside each cell */
+}
+
+@media only screen and (max-width: 850px) {
+  th, td {
+    border: 1px solid #000; /* Adds border to each cell */
+    padding: 5px;
+    text-align: left; /* Centers the content inside each cell */
+  }
 }
 
 /* Triangle pointing right */
@@ -672,7 +684,7 @@ th, td {
   }
 
   ul#menu {
-    margin:20px 0 0 0;
+    margin:0 0 0 0;
     flex-direction: column; /* Stack menu items vertically */
     align-items: center; /* Center menu items horizontally */
     width: 100%; /* Ensure menu takes full width of the container */
