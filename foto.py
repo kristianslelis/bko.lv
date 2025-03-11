@@ -14,8 +14,8 @@ def generate_foto_html(hq_folder, lq_folder):
 
     # Generate the HTML for each image
     images_html = ""
-    for image in image_files:
-        images_html += f'<img class="slides fade" src="{lq_folder}/{image}" alt="{image}">\n'
+    for image in image_files: 
+        images_html += f'<img src="{lq_folder}/{image}" alt="{image}" data-src="{lq_folder}/{image}">\n'
 
     # Insert the images into the template
     html_content = html_template.format(images=images_html)
