@@ -2,7 +2,7 @@ import os
 
 # Path to the "foto" folder
 hq_folder = 'foto'
-lq_folder= "RV1G_2024"
+lq_folder= "Apbalvosana_2024"
 
 # HTML template for the page (escaped curly braces in JavaScript)
 html_template = '''{images}'''
