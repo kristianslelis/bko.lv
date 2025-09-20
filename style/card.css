@@ -1,0 +1,151 @@
+:root {
+  --gap: 20px;
+}
+
+.mySwiper1 {
+  width: 100%;
+  max-width: 1200px;
+  margin:  auto;
+}
+
+.mySwiper1 .swiper-inner {
+  width: 90%;
+  /* slides only take 90% */
+  margin: 0  auto;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  /* center it */
+  overflow: hidden;
+  /* hide overflow */
+}
+
+.mySwiper1 .swiper-slide {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: calc((100% - (2 * var(--gap))) / 3);
+}
+
+.mySwiper1 .swiper-slide .box {
+  width: 100%;
+  /* fill the slide */
+  max-width: none;
+  /* allow it to shrink below 550px */
+  height: auto;
+  background: var(--red);
+  border-radius: 25px;
+}
+
+.mySwiper1 .box .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+}
+
+.mySwiper1 .box .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.mySwiper1 .box .info {
+  padding: 0 1rem 1rem 1rem;
+  text-align: left;
+}
+
+.mySwiper1 .box .info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  cursor: text;
+  margin-bottom: 5px;
+}
+
+.mySwiper1 .box .info p {
+  font-size: 1rem;
+  cursor: text;
+}
+
+.mySwiper1 .box .info .date p {
+  font-size: 16px;
+  cursor: text;
+}
+
+/* Swiper navigation buttons */
+.mySwiper1 .swiper-button-next,
+.mySwiper1 .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  z-index: 10;
+}
+
+.mySwiper1 .swiper-button-next {
+  right: 0;
+  color: var(--lightred);
+
+}
+
+.mySwiper1 .swiper-button-prev {
+  left: 0;
+  color: var(--lightred);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  pointer-events: auto;
+  /* re-enable click only on the arrow */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.mySwiper1 .swiper-button-next::after,
+.mySwiper1 .swiper-button-prev::after {
+  pointer-events: auto;
+  /* re-enable click only on the arrow */
+}
+
+.mySwiper1 .swiper-pagination-bullet {
+  background: #fff;
+  width: 10px;
+  height: 10px;
+}
+
+@media (max-width: 900px) {
+  .mySwiper1 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .mySwiper1 .swiper-inner {
+    width: 85%;
+  }
+
+  .mySwiper1 .swiper-slide .box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mySwiper1 .swiper-slide {
+    width: calc((100% - var(--gap)) / 2);
+  }
+}
+
+/* Mobile: 1 slide */
+@media (max-width: 480px) {
+  .mySwiper1 .swiper-slide {
+    width: calc((100% - (0 * var(--gap))) / 1);
+  }
+}

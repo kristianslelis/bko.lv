@@ -1,0 +1,64 @@
+.slideshow-container {
+  aspect-ratio: 16/7.2;   /* Crops top and bottom 10% each */
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+  display: block;
+}
+
+.crossFade__image {
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 90%;
+  height: 95%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  object-fit: cover;
+  object-position: center 50%;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+/* Disable transition only for the first load */
+.crossFade__image:first-of-type {
+  transition: none;
+}
+
+.crossFade__image--active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.text {
+  font-family: var(--font-alt);
+  background-color: var(--red);
+  max-width: 60%;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 1.25rem;
+    padding: 8px 16px;
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  text-align: left;
+  z-index: 10;
+}
+
+@media (max-width: 800px) {
+
+  .slideshow-container {
+  aspect-ratio: 2.6/2;   /* Crops top and bottom 10% each */
+
+}
+.crossFade__image {
+  height: 80%;
+}
+  .text{
+    
+    font-size: 1rem;
+    max-width: 80%;
+  }
+}

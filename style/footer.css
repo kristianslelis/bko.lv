@@ -1,0 +1,52 @@
+#footer {
+    width: 100%;
+    font-family: 'trebuchet ms', sans-serif;
+    font-size: 100%;
+    height: auto;
+    padding: 20px 0;
+    text-align: center; 
+    color: #fff;
+}
+#footer a {
+  color: #FFF; /* Set the text color of links in the footer to white */
+  text-decoration: none; /* Remove underline from the links */
+}
+
+#footer a:hover {
+  text-decoration: underline; /* Optionally, add underline on hover for better visibility */
+}
+#footer p {
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#footer p span {
+  margin: 0 2px; /* Space between items */
+}
+
+#footer p span::before {
+  content: " | "; /* Separator before each item */
+}
+
+#footer p span:first-child::before {
+  content: ""; /* Remove the separator before the first item */
+}
+
+@media (max-width: 1000px) {
+
+
+    #footer p {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  #footer p span {
+    margin: 5px 0; /* Space between items vertically */
+  }
+
+  #footer p span::before {
+    content: ""; /* Remove the separator on mobile */
+  }
+}

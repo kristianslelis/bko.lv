@@ -1,0 +1,152 @@
+/* DESKTOP */
+.navbar {
+    margin: 0 auto;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+}
+
+.navbar li.navbar-logo {
+    margin-right: auto;
+}
+
+.navbar-logo img {
+    width: 200px;
+    height: auto;
+}
+
+.navbar li a {
+    font: normal 100% 'Capriola', sans-serif;
+    font-size: 1.5rem;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    margin: 1rem;
+    border-radius: 25px;
+}
+
+.navbar li a:hover {
+    background-color: var(--red);
+}
+
+.navbar-logo a:hover {
+    background-color: transparent !important;
+}
+
+/* Hamburger hidden by default */
+.icon {
+    display: none;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 1rem;
+        height: auto;
+        position: relative;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    /* Hide links initially except logo and icon */
+    .navbar li:not(.navbar-logo):not(.icon) {
+        display: none;
+        width: 100%;
+    }
+
+    /* Hamburger icon */
+    .icon {
+        font-size: 2rem;
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 0;
+        padding: 2rem 0 0 0;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .icon i {
+        font-size: 2rem;
+        color: white;
+        line-height: 1;
+    }
+
+    @keyframes flash {
+        0% {
+            background-color: var(--red);
+        }
+
+        100% {
+            background-color: transparent;
+        }
+    }
+
+    .navbar li a.flash {
+        animation: flash 0.3s ease forwards;
+        display: inline-block;
+        /* shrink to content */
+        padding: 0.5rem 0.5rem;
+        width: auto;
+        border-radius: 25px;
+    }
+
+    /* Show links when navbar is toggled */
+    .navbar.responsive li:not(.icon) {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Logo adjustments */
+    .navbar-logo {
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+
+    .navbar-logo a {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar-logo img {
+        width: auto;
+        height: 4rem;
+        display: block;
+        margin: 0;
+    }
+
+    .navbar li a {
+        display: inline-block;
+        /* shrink to content */
+        padding: 0.5rem 0.5rem;
+        margin: 0;
+        width: auto;
+        /* do not stretch */
+        text-align: left;
+    }
+
+
+
+
+}

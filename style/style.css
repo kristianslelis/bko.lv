@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=Righteous&display=swap');
+
+:root {
+  --font-main: 'Open Sans', sans-serif;
+  --font-accent: 'Capriola', cursive;
+
+  --lightgreen: #93c0ab;
+  --green: #52BF8D;
+  --darkgreen: #2E9967;
+  --verydarkgreen: #2E5045;
+  --lightblue: #b4c1d7;
+  --bluez: #8BA1C8;
+  --darkblue: #5271A5;
+  --lightpurple: #d3b2c9;
+  --purple: #D596C1;
+  --darkpurple: #B35595;
+  --lightred: #c4444a;
+  --red: #903035;
+  --darkred: #541e21;
+}
+
+html {
+  font-size: 16px;
+  /* base size */
+}
+
+
+body {
+  background-color: #000;
+  /* solid black behind everything */
+  margin: 0;
+  padding: 0;
+  font: normal 1rem 'Open Sans', arial, sans-serif;
+  position: relative;
+  /* needed for pseudo-element */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--vh, 100vh);   /* dynamic height set by JS */
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+              url("../atteli/mito.png") center/cover no-repeat;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+
+
+.title h1,
+.title h2,
+.title h3 {
+  font-family: "Capriola";
+  background-color: var(--red);
+  color: #fff;
+  margin: 2rem 0 0 0;
+  ;
+  border-radius: 20px;
+  width: auto;
+  text-align: left;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  /* white text */
+  margin: 0;
+  padding: 1rem 0 0 0;
+  line-height: 1.2;
+  /* good spacing */
+}
+
+h1 {
+  font-size: 2.5rem;
+  /* ~40px */
+  font-weight: 700;
+  font-family: var(--font-accent);
+}
+
+h2 {
+  font-size: 2rem;
+  /* ~32px */
+  font-weight: 700;
+  font-family: var(--font-accent);
+}
+
+h3 {
+  font-size: 1.75rem;
+  /* ~28px */
+  font-weight: 700;
+  font-family: var(--font-accent);
+}
+
+h4 {
+  font-size: 1.5rem;
+  /* ~24px */
+  font-weight: 600;
+  font-family: var(--font-main);
+}
+
+h5 {
+  font-size: 1.25rem;
+  /* ~20px */
+  font-weight: 600;
+  font-family: var(--font-main);
+}
+
+h6 {
+  font-size: 1rem;
+  /* ~16px */
+  font-weight: 600;
+  font-family: var(--font-main);
+}
+
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+p {
+  color: #fff;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 0 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.btn button {
+  background: var(--darkred);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn button:hover {
+  background: var(--lightred);
+}
+
+.btn-link {
+  display: inline-block;
+  /* wrap only the text */
+  background: var(--darkred);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-link:hover {
+  background: var(--lightred);
+}
+
+.btn-list li {
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.btn-red {
+  background: var(--red);
+}
+
+.btn-open {
+  font-family: var(--font-main);
+  color: #fff;
+  font-size: 14px;
+}
+
+
+p a {
+  color: var(--lightred);
+}
+
+.table-wrapper {
+  max-height: 400px;
+  /* or any height you want */
+  max-width: 100%;
+  /* optional horizontal limit */
+  overflow: auto;
+  /* enables both vertical & horizontal scroll if needed */
+}
+
+/* keep your existing table styles */
+table {
+  border-collapse: collapse;
+  margin: 0;
+  /* remove extra margin inside the wrapper */
+  font-size: 16px;
+  color: #fff;
+}
+
+td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+
+@media (max-width: 1000px) {
+  html {
+    font-size: 16px;
+    height: 100%;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+body::before {
+  position: fixed;     /* relative to body, not viewport */
+
+}
+
+}
