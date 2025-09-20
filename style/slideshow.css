@@ -1,7 +1,7 @@
 .slideshow-container {
   aspect-ratio: 16/7.2;   /* Crops top and bottom 10% each */
   position: relative;
-  margin: 0px auto;
+  margin: 0 0 2rem 0;
   overflow: hidden;
   display: block;
 }

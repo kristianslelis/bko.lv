@@ -57,7 +57,7 @@ body::before {
   font-family: "Capriola";
   background-color: var(--red);
   color: #fff;
-  margin: 2rem 0 0 0;
+  margin: 0;
   ;
   border-radius: 20px;
   width: auto;
@@ -132,8 +132,12 @@ h6 {
 
 p {
   color: #fff;
+  
 }
 
+ul {
+    margin: 0 0 2rem 0;
+}
 .btn {
   margin-top: 10px;
   padding: 0 10px 0 0;
@@ -196,17 +200,14 @@ p a {
 
 .table-wrapper {
   max-height: 400px;
-  /* or any height you want */
   max-width: 100%;
-  /* optional horizontal limit */
   overflow: auto;
-  /* enables both vertical & horizontal scroll if needed */
 }
 
 /* keep your existing table styles */
 table {
   border-collapse: collapse;
-  margin: 0;
+  margin: 0 0 1rem 0;
   /* remove extra margin inside the wrapper */
   font-size: 16px;
   color: #fff;
@@ -217,7 +218,10 @@ td {
   vertical-align: middle;
 }
 
+.news-section{
+      margin: 0 0 2rem 0;
 
+}
 @media (max-width: 1000px) {
   html {
     font-size: 16px;

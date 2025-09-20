@@ -49,7 +49,7 @@
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .navbar {
         padding: 1rem;
         height: auto;
@@ -68,6 +68,7 @@
     .navbar li:not(.navbar-logo):not(.icon) {
         display: none;
         width: 100%;
+        
     }
 
     /* Hamburger icon */
@@ -80,31 +81,14 @@
         padding: 2rem 0 0 0;
         cursor: pointer;
         z-index: 10;
+                background-color: transparent;
+
     }
 
     .icon i {
         font-size: 2rem;
         color: white;
         line-height: 1;
-    }
-
-    @keyframes flash {
-        0% {
-            background-color: var(--red);
-        }
-
-        100% {
-            background-color: transparent;
-        }
-    }
-
-    .navbar li a.flash {
-        animation: flash 0.3s ease forwards;
-        display: inline-block;
-        /* shrink to content */
-        padding: 0.5rem 0.5rem;
-        width: auto;
-        border-radius: 25px;
     }
 
     /* Show links when navbar is toggled */
@@ -144,6 +128,10 @@
         width: auto;
         /* do not stretch */
         text-align: left;
+    }
+
+    .navbar li a:hover {
+        background-color: transparent;
     }
 
 

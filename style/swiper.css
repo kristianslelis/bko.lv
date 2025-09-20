@@ -25,7 +25,7 @@
     list-style: none;
     padding: 0;
     z-index: 1;
-    display: block
+    display: block;
 }
 
 .swiper-vertical>.swiper-wrapper {
