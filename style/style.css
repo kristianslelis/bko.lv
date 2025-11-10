@@ -44,7 +44,7 @@ body::before {
   width: 100%;
   height: var(--vh, 100vh);   /* dynamic height set by JS */
   background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-              url("../atteli/mito.png") center/cover no-repeat;
+              url("../atteli/mitohondrijs.png") center/cover no-repeat;
   filter: blur(8px);
   z-index: -1;
 }

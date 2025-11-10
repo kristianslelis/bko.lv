@@ -1,28 +1,40 @@
+// Replace your JS with this simpler, robust version
 document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll('.crossFade__image');
+  const slides = Array.from(document.querySelectorAll('.crossFade__image'));
+  if (!slides.length) return;
   let current = 0;
+  const intervalMs = 4500;
+  const transitionOverlapMs = 180; // small overlap so next starts fading in slightly before old finishes
 
-  // Show first slide instantly
-  slides[current].style.opacity = 1;
-
-  // Restore transition for all slides after the first frame
+  // Show first slide instantly (no transition)
+  slides[current].classList.add('no-transition', 'crossFade__image--active');
+  // allow browser to paint with no-transition then re-enable transitions
   requestAnimationFrame(() => {
-    slides.forEach(slide => {
-      slide.style.transition = "opacity 2s ease-in-out";
-    });
+    slides[current].classList.remove('no-transition');
   });
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('crossFade__image--active', i === index);
-    });
+  function showSlide(nextIndex) {
+    if (nextIndex === current) return;
+    const inSlide = slides[nextIndex];
+    const outSlide = slides[current];
+
+    // bring the next slide in
+    inSlide.classList.add('crossFade__image--active');
+
+    // after a tiny overlap, remove the old slide
+    setTimeout(() => {
+      outSlide.classList.remove('crossFade__image--active');
+      current = nextIndex;
+    }, transitionOverlapMs);
   }
 
   function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
+    const next = (current + 1) % slides.length;
+    showSlide(next);
   }
 
-  // Start the slideshow after first frame
-  setInterval(nextSlide, 4500);
+  const timer = setInterval(nextSlide, intervalMs);
+
+  // optional: clean up if page unloads (not required but tidy)
+  window.addEventListener('beforeunload', () => clearInterval(timer));
 });

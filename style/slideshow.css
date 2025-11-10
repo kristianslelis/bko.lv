@@ -1,11 +1,4 @@
-.slideshow-container {
-  aspect-ratio: 16/7.2;   /* Crops top and bottom 10% each */
-  position: relative;
-  margin: 0 0 2rem 0;
-  overflow: hidden;
-  display: block;
-}
-
+/* Replace your .crossFade__image rules with this safe version */
 .crossFade__image {
   border-radius: 20px;
   position: absolute;
@@ -14,32 +7,52 @@
   width: 90%;
   height: 95%;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  /* animate opacity, transform (translateY), and filter (blur) only */
+  transition: opacity 900ms cubic-bezier(.2,.9,.28,1),
+              transform 900ms cubic-bezier(.2,.9,.28,1),
+              filter 900ms cubic-bezier(.2,.9,.28,1);
   object-fit: cover;
   object-position: center 50%;
   pointer-events: none;
-  transform: translateX(-50%);
-}
-
-/* Disable transition only for the first load */
-.crossFade__image:first-of-type {
-  transition: none;
+  transform: translateX(-50%) translateY(10px); /* starts slightly down */
+  filter: blur(6px) saturate(0.98) contrast(0.98);
+  z-index: 1;
+  will-change: transform, opacity, filter;
 }
 
 .crossFade__image--active {
   opacity: 1;
   pointer-events: auto;
   z-index: 2;
+  transform: translateX(-50%) translateY(0); /* settles into place */
+  filter: blur(0) saturate(1) contrast(1);
+}
+
+/* optional tiny "pop" for the visible slide using a short secondary transition (no scaling) */
+.crossFade__image--active .inner { /* if your image has inner wrapper; ignore if not used */ }
+
+/* Keep no-transition helper */
+.no-transition {
+  transition: none !important;
+}
+
+/* keep your other CSS the same */
+.slideshow-container {
+  aspect-ratio: 16/7.2;
+  position: relative;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  display: block;
 }
 
 .text {
   font-family: var(--font-alt);
   background-color: var(--red);
-  max-width: 60%;
+  max-width: 63%;
   border-radius: 20px;
   color: #fff;
   font-size: 1.25rem;
-    padding: 8px 16px;
+  padding: 8px 16px;
   position: absolute;
   bottom: 0;
   width: auto;
@@ -48,17 +61,7 @@
 }
 
 @media (max-width: 800px) {
-
-  .slideshow-container {
-  aspect-ratio: 2.6/2;   /* Crops top and bottom 10% each */
-
-}
-.crossFade__image {
-  height: 80%;
-}
-  .text{
-    
-    font-size: 1rem;
-    max-width: 80%;
-  }
+  .slideshow-container { aspect-ratio: 2.6/2; }
+  .crossFade__image { height: 80%; }
+  .text { font-size: 1rem; max-width: 70%; }
 }
