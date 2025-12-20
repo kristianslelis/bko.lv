@@ -1,0 +1,79 @@
+  :root{
+    --gap: 1.5rem;
+    --card-radius: 20px;
+    --card-height-img: 300px;
+    --card-height-info: 80px;
+    --accent: #d94b4b;
+    --text: #fff;
+  }
+
+  /* container */
+  .year-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    padding: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* the card (simple, predictable flex column) */
+  .year-box{
+    display: flex;
+    flex-direction: column;      /* image on top, info below */
+    overflow: hidden;            /* round corners & crop image */
+    border-radius: var(--card-radius);
+    background: var(--red);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .22s ease, box-shadow .22s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  }
+  .year-box:hover{
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(0,0,0,.14);
+  }
+
+  /* image area: fixed height for consistent layout */
+  .year-box .img{
+    height: var(--card-height-img);
+    min-height: var(--card-height-img);
+    width: 100%;
+    flex: 0 0 var(--card-height-img); /* don't stretch or shrink */
+    background: #eee; /* fallback while image loads */
+  }
+  .year-box .img img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* info area: guaranteed centering using flex */
+  .year-box .info{
+    height: var(--card-height-info);
+    min-height: var(--card-height-info);
+    flex: 0 0 var(--card-height-info); /* fixed bottom bar */
+    display: flex;
+    align-items: center;    /* vertical center */
+    justify-content: center;/* horizontal center */
+    padding: 0 1rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.03) 100%);
+  }
+
+  .year-box .info h2{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1; /* doesn't break centering because the h2 box is centered */
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* responsive */
+  @media (max-width: 900px){
+    .year-grid{ grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 520px){
+    .year-grid{ grid-template-columns: 1fr; }
+  }

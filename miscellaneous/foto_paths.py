@@ -1,7 +1,7 @@
 import os
 
 # -------- configuration --------
-image_folder = "foto/RV3G_2024"        # <— choose your one folder here
+image_folder = "foto/2025_rv3g"        # <— choose your folder here
 html_template = '''{images}'''           # HTML wrapper
 # --------------------------------
 
@@ -9,6 +9,9 @@ def generate_foto_html(folder):
     # list image files in that folder
     image_files = [f for f in os.listdir(folder)
                    if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))]
+    
+    # sort filenames alphabetically
+    image_files.sort()
 
     images_html = ""
     for image in image_files:
@@ -19,6 +22,5 @@ def generate_foto_html(folder):
 
 html_content = generate_foto_html(image_folder)
 
-with open('foto_paths.html', 'w', encoding='utf-8') as file:
+with open('foto_pathss.html', 'w', encoding='utf-8') as file:
     file.write(html_content)
-

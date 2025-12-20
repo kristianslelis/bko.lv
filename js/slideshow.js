@@ -1,14 +1,12 @@
-// Replace your JS with this simpler, robust version
 document.addEventListener("DOMContentLoaded", function () {
   const slides = Array.from(document.querySelectorAll('.crossFade__image'));
   if (!slides.length) return;
   let current = 0;
   const intervalMs = 4500;
-  const transitionOverlapMs = 180; // small overlap so next starts fading in slightly before old finishes
+  const transitionOverlapMs = 180;
 
-  // Show first slide instantly (no transition)
+  // Show first slide instantly
   slides[current].classList.add('no-transition', 'crossFade__image--active');
-  // allow browser to paint with no-transition then re-enable transitions
   requestAnimationFrame(() => {
     slides[current].classList.remove('no-transition');
   });
@@ -18,10 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const inSlide = slides[nextIndex];
     const outSlide = slides[current];
 
-    // bring the next slide in
     inSlide.classList.add('crossFade__image--active');
 
-    // after a tiny overlap, remove the old slide
     setTimeout(() => {
       outSlide.classList.remove('crossFade__image--active');
       current = nextIndex;
@@ -29,12 +25,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function nextSlide() {
-    const next = (current + 1) % slides.length;
+    if (slides.length === 1) return; // only one slide, nothing to do
+    let next;
+    do {
+      next = Math.floor(Math.random() * slides.length);
+    } while (next === current); // avoid repeating the same slide
     showSlide(next);
   }
 
   const timer = setInterval(nextSlide, intervalMs);
 
-  // optional: clean up if page unloads (not required but tidy)
   window.addEventListener('beforeunload', () => clearInterval(timer));
 });

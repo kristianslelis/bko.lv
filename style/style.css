@@ -181,7 +181,25 @@ p {
   text-align: center;
 }
 
+.btn-link_large {
+
+  font-family: var(--font-accent);
+  display: inline-block;
+  /* wrap only the text */
+  background: var(--darkred);
+  color: #fff;
+  font-size: 30px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
 .btn-link:hover {
+  background: var(--lightred);
+}
+.btn-link_large:hover {
   background: var(--lightred);
 }
 
