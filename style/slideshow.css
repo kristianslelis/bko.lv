@@ -48,7 +48,7 @@
 .text {
   font-family: var(--font-alt);
   background-color: var(--red);
-  max-width: 63%;
+  max-width: 65%;
   border-radius: 20px;
   color: #fff;
   font-size: 1.25rem;

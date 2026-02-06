@@ -216,6 +216,13 @@ p {
   font-family: var(--font-main);
   color: #fff;
   font-size: 14px;
+  
+  /* Add these two lines to kill the default browser look */
+  border: none; 
+  outline: none;
+  
+  /* Since it's a button, you also want the hand cursor */
+  cursor: pointer; 
 }
 
 
