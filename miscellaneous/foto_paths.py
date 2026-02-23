@@ -1,7 +1,7 @@
 import os
 
 # -------- configuration --------
-image_folder = "foto/2025_rv3g"        # <— choose your folder here
+image_folder = "foto/2025_apbalvosana"        # <— choose your folder here
 html_template = '''{images}'''           # HTML wrapper
 # --------------------------------
 
