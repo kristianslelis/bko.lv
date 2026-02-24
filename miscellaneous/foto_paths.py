@@ -22,5 +22,5 @@ def generate_foto_html(folder):
 
 html_content = generate_foto_html(image_folder)
 
-with open('foto_pathss.html', 'w', encoding='utf-8') as file:
+with open('foto_paths.html', 'w', encoding='utf-8') as file:
     file.write(html_content)
