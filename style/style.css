@@ -20,6 +20,26 @@
   --darkred: #541e21;
 }
 
+:root {
+  --font-main: 'Open Sans', sans-serif;
+  --font-accent: 'Capriola', cursive;
+
+  --lightgreen: #93c0ab;
+  --green: #52BF8D;
+  --darkgreen: #2E9967;
+  --verydarkgreen: #2E5045;
+  --lightblue: #b4c1d7;
+  --bluez: #8BA1C8;
+  --darkblue: #5271A5;
+  --lightpurple: #d3b2c9;
+  --purple: #D596C1;
+  --darkpurple: #B35595;
+  --base: #026d02ff;
+  --lightbase: #f647faff;
+  --lightaccent: #f647faff;
+  --darkaccent: #004600ff;
+}
+
 html {
   font-size: 16px;
   /* base size */
@@ -43,8 +63,8 @@ body::before {
   left: 0;
   width: 100%;
   height: var(--vh, 100vh);   /* dynamic height set by JS */
-  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-              url("../atteli/mitohondrijs.png") center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("../atteli/sakne.jpg") center/cover no-repeat;
   filter: blur(8px);
   z-index: -1;
 }
@@ -55,7 +75,7 @@ body::before {
 .title h2,
 .title h3 {
   font-family: "Capriola";
-  background-color: var(--red);
+  background-color: var(--base);
   color: #fff;
   margin: 0;
   ;
@@ -154,24 +174,42 @@ p {
   justify-content: flex-start;
 }
 
-.btn button {
-  background: var(--darkred);
-  color: #fff;
-  font-size: 14px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+
+
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
-.btn button:hover {
-  background: var(--lightred);
+.buttons a,
+.buttons button,
+.btn a,
+.btn button {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: var(--darkaccent);
+    color: white;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
 }
+.buttons a:hover,
+.buttons button:hover,
+.btn a:hover,
+.btn button:hover {
+    background: var(--lightaccent);
+}
+
 
 .btn-link {
   display: inline-block;
   /* wrap only the text */
-  background: var(--darkred);
+  background: var(--lightbase);
   color: #fff;
   font-size: 14px;
   padding: 8px 16px;
@@ -186,7 +224,7 @@ p {
   font-family: var(--font-accent);
   display: inline-block;
   /* wrap only the text */
-  background: var(--darkred);
+  background: var(--lightbase);
   color: #fff;
   font-size: 30px;
   padding: 8px 16px;
@@ -197,10 +235,10 @@ p {
 }
 
 .btn-link:hover {
-  background: var(--lightred);
+  background: var(--lightbase);
 }
 .btn-link_large:hover {
-  background: var(--lightred);
+  background: var(--lightbase);
 }
 
 .btn-list li {
@@ -209,7 +247,7 @@ p {
 }
 
 .btn-red {
-  background: var(--red);
+  background: var(--base);
 }
 
 .btn-open {
@@ -227,7 +265,7 @@ p {
 
 
 p a {
-  color: var(--lightred);
+  color: var(--lightaccent);
 }
 
 .table-wrapper {

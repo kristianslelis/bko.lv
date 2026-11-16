@@ -36,7 +36,7 @@
 }
 
 .navbar li a:hover {
-    background-color: var(--red);
+    background-color: var(--base);
 }
 
 .navbar-logo a:hover {

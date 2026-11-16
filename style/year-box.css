@@ -23,7 +23,7 @@
     flex-direction: column;      /* image on top, info below */
     overflow: hidden;            /* round corners & crop image */
     border-radius: var(--card-radius);
-    background: var(--red);
+    background: var(--base);
     text-decoration: none;
     color: inherit;
     transition: transform .22s ease, box-shadow .22s ease;

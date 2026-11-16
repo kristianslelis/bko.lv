@@ -34,7 +34,7 @@
   max-width: none;
   /* allow it to shrink below 550px */
   height: auto;
-  background: var(--red);
+  background: var(--base);
   border-radius: 25px;
 }
 
@@ -89,13 +89,13 @@
 
 .mySwiper1 .swiper-button-next {
   right: 0;
-  color: var(--lightred);
+  color: var(--lightaccent);
 
 }
 
 .mySwiper1 .swiper-button-prev {
   left: 0;
-  color: var(--lightred);
+  color: var(--lightaccent);
 }
 
 .swiper-button-next::after,
